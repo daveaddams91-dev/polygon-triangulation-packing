@@ -246,19 +246,20 @@ $\{v_0,v_1\}$ of $P_{2m}$. The vertices $c_0,\dots,c_{m-1}$ are pairwise distinc
 
 \begin{proof}
 For each $i$, the edge $\{v_0,v_1\}$ belongs to exactly one of the two
-half-polygons of $T_i$. If $i=0$ it lies in $A_0$ whose fan is centered at
-$v_1$, and the resulting triangle is $(v_0,v_1,v_m)$, so $c_0=m$. If
-$i=1$ the edge lies in $B_1=(v_{m+1},\dots,v_{2m+1}=v_1)$ fanned at $v_{m+2}$,
-and the relevant triangle is $(v_{m+2},v_0,v_1)$, so $c_1=m+2$. For
-$2\le i\le m-2$ the closing half $B_i=(v_{i+m},\dots,v_{i+2m})$ contains
-$(v_0,v_1)$ as its last two vertices and is fanned at $v_{i+m+1}$; the triangle
-spanning its last edge and its center is $(v_{i+m+1}, v_0, v_1)$, so
-$c_i=i+m+1\in \{m+3,\dots,2m-1\}$. Finally $i=m-1$ gives the triangle
-$(v_2,v_0,v_1)$, so $c_{m-1}=2$. Altogether the apex values are
-\[
-m,\; m+2,\; m+3,\;\dots,\; 2m-1,\; 2,
-\]
-which are $m$ distinct indices mod $2m$.\qedhere
+half-polygons of $T_i$, namely $A_0$ when $i=0$ and $B_i$ when
+$1\le i\le m-1$.  Cases: $i=0$ gives triangle $(v_0,v_1,v_m)$, so $c_0=m$.
+$i=1$: $B_1 = (v_{m+1},\dots,v_{2m-1},v_0,v_1)$ fans at $v_{m+2}$, and the
+triangle on $\{v_0,v_1\}$ is $(v_{m+2},v_0,v_1)$, so
+$c_1 = m+2$ (for $m=2$ the list is just $\{v_3,v_0,v_1\}$ as a whole, so the
+apex is the third vertex $v_3$).  $2\le i \le m-2$: inside $B_i =
+(v_{i+m},\dots,v_{i+2m})$ the vertices $v_0,v_1$ are in positions $m-i$ and
+$m-i+1$, and its fan center $v_{i+m+1}$ supports the triangle
+$(v_{i+m+1},v_0,v_1)$ there; since $m-i\ge 2$, this face is indeed a triangle of
+the fanned piece, so $c_i=i+m+1\in\{m+3,\dots,2m-1\}$.  $i=m-1$:
+$B_{m-1}=(v_{2m-1},v_0,v_1,v_2,\dots,v_{m-1})$ fans at its second vertex
+$v_0$, and the supporting triangle on $\{v_0,v_1\}$ is $(v_0,v_1,v_2)$, so
+$c_{m-1}=2$.  In all cases the indices produced are distinct (with the small
+exception being handled by the parenthetical above), hence $c_i\ne c_j$.\qedhere
 \end{proof}
 
 \begin{lemma}[insertion of a vertex]
