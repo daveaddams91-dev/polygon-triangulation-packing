@@ -1,0 +1,7 @@
+n,reps,best_random_greedy_packing,bound,status
+6,5,3,3,OK (never above bound)
+8,5,3,4,OK (never above bound)
+10,4,3,5,OK (never above bound)
+12,3,3,6,OK (never above bound)
+14,2,4,7,OK (never above bound)
+16,1,4,8,OK (never above bound)

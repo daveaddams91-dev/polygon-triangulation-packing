@@ -1,0 +1,9 @@
+n,construction,valid_and_exact,wall_time_s
+4,"double-fan packing, 2 pieces",True,0.0
+8,"double-fan packing, 4 pieces",True,0.0
+12,"double-fan packing, 6 pieces",True,0.0
+16,"double-fan packing, 8 pieces",True,0.0
+24,"double-fan packing, 12 pieces",True,0.001
+32,"double-fan packing, 16 pieces",True,0.002
+48,"double-fan packing, 24 pieces",True,0.006
+64,"double-fan packing, 32 pieces",True,0.011
