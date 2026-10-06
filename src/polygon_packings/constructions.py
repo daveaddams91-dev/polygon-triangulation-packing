@@ -5,10 +5,22 @@ Let the convex n-gon have vertices on a circle.
 
 from __future__ import annotations
 
+
 from .core import is_diagonal
 
 
+
 def key(a: int, b: int) -> tuple[int, int]:
+    """Key.
+    
+    Args:
+        a:
+        b:
+    
+    Returns:
+        tuple: Result of type tuple
+    
+    """
     return tuple(sorted((a, b)))
 
 
@@ -113,6 +125,15 @@ def _apex_on_even_edge(T: frozenset[tuple[int, int]], edge: tuple[int, int], cyc
         adj[tuple(sorted((a, b)))] = True
 
     def on_edge(e: tuple[int, int]) -> bool:
+        """On edge.
+        
+        Args:
+            e:
+        
+        Returns:
+            The computed result
+        
+        """
         return e in T or tuple(sorted(e)) in adj
 
     for c in cycle:

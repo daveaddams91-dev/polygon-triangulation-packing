@@ -1,14 +1,15 @@
 """Experiment E1: validate the explicit constructions against the theorem statement
 for a sweep of n, and certify the counts and properties required by Theorem 1."""
 
+from pathlib import Path
 import csv
 import sys
-from pathlib import Path
+
+from polygon_packings import core, constructions  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from polygon_packings import core, constructions  # noqa: E402
 
 ROWS = []
 for n in range(4, 31):

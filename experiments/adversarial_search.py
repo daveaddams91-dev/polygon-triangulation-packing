@@ -2,15 +2,16 @@
 beat the predicted bound floor(n/2).  These are used to try to falsify the
 main inequality; combined with the trivial counting bound they confirm tightness."""
 
-import csv
-import random
-import sys
 from pathlib import Path
+import csv
+import sys
+
+from polygon_packings.exhaustive import random_greedy_pack  # noqa: E402
+import random
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from polygon_packings.exhaustive import random_greedy_pack  # noqa: E402
 
 rows = []
 rng = random.Random(1729)

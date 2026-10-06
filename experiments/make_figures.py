@@ -5,19 +5,23 @@ fig2: the odd packing of the heptagon, with the two leftover diagonals (the 'wed
 fig3: diagonal-span profile of every piece of the 10-gon double-fan decomposition,
       illustrating the gap-balance lemma of Section 5.
 """
+from __future__ import annotations
 
+from pathlib import Path
 import math
 import sys
-from pathlib import Path
+
+from polygon_packings import core, constructions  # noqa: E402
+import matplotlib
+import matplotlib.pyplot as plt  # noqa: E402
+
+
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-import matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
 
-from polygon_packings import core, constructions  # noqa: E402
 
 FIG = ROOT / "figures"
 FIG.mkdir(exist_ok=True)
@@ -26,12 +30,30 @@ PALETTE = ["#1f77b4", "#d62728", "#2ca02c", "#9467bd",
            "#ff7f0e", "#17becf", "#8c564b", "#e377c2"]
 
 
-def pos(n, i):
+def pos(n, i) -> tuple:
+    """Pos.
+    
+    Args:
+        n:
+        i:
+    
+    Returns:
+        tuple: Result of type tuple
+    
+    """
     ang = math.pi / 2 + 2 * math.pi * i / n
     return (math.cos(ang), math.sin(ang))
 
 
 def draw_polygon(ax, n, lw=1.4):
+    """Draw polygon.
+    
+    Args:
+        ax:
+        n:
+        lw (float):
+    
+    """
     for i in range(n):
         p, q = pos(n, i), pos(n, (i + 1) % n)
         ax.plot([p[0], q[0]], [p[1], q[1]], color="black", lw=lw, zorder=3)
@@ -41,6 +63,17 @@ def draw_polygon(ax, n, lw=1.4):
 
 
 def draw_diags(ax, n, T, color, lw=1.4, ls="-"):
+    """Draw diags.
+    
+    Args:
+        ax:
+        n:
+        T:
+        color:
+        lw (float):
+        ls (str):
+    
+    """
     for (a, b) in T:
         p, q = pos(n, a), pos(n, b)
         ax.plot([p[0], q[0]], [p[1], q[1]], color=color, lw=lw, ls=ls, zorder=2)
