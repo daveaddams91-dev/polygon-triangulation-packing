@@ -11,6 +11,8 @@ A *triangulation* is a set of exactly n-3 pairwise non-crossing diagonals.
 from __future__ import annotations
 
 from itertools import combinations
+import functools
+
 
 
 def all_diagonals(n: int) -> list[tuple[int, int]]:
@@ -32,6 +34,16 @@ def cross(d1: tuple[int, int], d2: tuple[int, int]) -> bool:
 
 
 def is_diagonal(d: tuple[int, int], n: int) -> bool:
+    """Is diagonal.
+    
+    Args:
+        d:
+        n:
+    
+    Returns:
+        bool: Result of type bool
+    
+    """
     a, b = d
     if not (0 <= a < b < n):
         return False
@@ -55,6 +67,7 @@ def is_triangulation(T: set[tuple[int, int]], n: int) -> bool:
     return True
 
 
+@functools.lru_cache(maxsize=None)
 def triangulations(n: int) -> list[frozenset[tuple[int, int]]]:
     """All triangulations of the convex n-gon as sets of diagonals (base marked 0,n-1)."""
     if n == 3:
@@ -83,6 +96,15 @@ def apex_on_boundary_edge(T: frozenset[tuple[int, int]] | set[tuple[int, int]],
     assert is_triangulation(set(T), n), "T must be a triangulation"
 
     def on_edge(e) -> bool:
+        """On edge.
+        
+        Args:
+            e:
+        
+        Returns:
+            The computed result
+        
+        """
         a, b = e
         return (e in T) or (b - a == 1) or (a, b) == (0, n - 1)
 
