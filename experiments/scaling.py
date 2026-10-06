@@ -2,15 +2,16 @@
 report the corresponding validation cost; also the growth of their
 is_triangulation checks, which is O(n^5) all-pairs over all pieces."""
 
+from pathlib import Path
 import csv
 import sys
 import time
-from pathlib import Path
+
+from polygon_packings import core, constructions  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from polygon_packings import core, constructions  # noqa: E402
 
 rows = []
 for n in [4, 8, 12, 16, 24, 32, 48, 64]:
