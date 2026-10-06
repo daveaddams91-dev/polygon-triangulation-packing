@@ -1,7 +1,10 @@
-import itertools
-import random
+"""Module for mathematical computation and analysis."""
+
+import functools
 
 from .core import all_diagonals, cross, is_triangulation, triangulations
+import random
+
 
 
 def max_pack_exact(n: int) -> tuple[int, list[frozenset]]:
@@ -12,6 +15,14 @@ def max_pack_exact(n: int) -> tuple[int, list[frozenset]]:
     bestsol: list[frozenset] = []
 
     def bt(i, cur, used):
+        """Bt.
+        
+        Args:
+            i:
+            cur (list):
+            used:
+        
+        """
         nonlocal best, bestsol
         if len(cur) + (len(tris) - i) <= best:
             return
@@ -37,7 +48,16 @@ def min_cover_exact(n: int) -> int:
     need = set(all_diagonals(n))
     best = [None]
 
+    @functools.lru_cache(maxsize=None)
     def bt(i, cur, covered):
+        """Bt.
+        
+        Args:
+            i:
+            cur (list):
+            covered:
+        
+        """
         if best[0] is not None and len(cur) >= best[0]:
             return
         if covered >= need:
